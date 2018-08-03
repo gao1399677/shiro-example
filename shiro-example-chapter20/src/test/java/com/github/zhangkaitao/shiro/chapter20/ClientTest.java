@@ -30,7 +30,8 @@ public class ClientTest {
         //创建一个server
         server = new Server(8080);
         WebAppContext context = new WebAppContext();
-        String webapp = "shiro-example-chapter20/src/main/webapp";
+//        String webapp = "shiro-example-chapter20/src/main/webapp";
+        String webapp = "./src/main/webapp";
         context.setDescriptor(webapp + "/WEB-INF/web.xml");  //指定web.xml配置文件
         context.setResourceBase(webapp);  //指定webapp目录
         context.setContextPath("/");
@@ -48,9 +49,9 @@ public class ClientTest {
         String param2 = "param2";
         String key = "dadadswdewq2ewdwqdwadsadasd";
         MultiValueMap<String, String> params = new LinkedMultiValueMap<String, String>();
-        params.add(Constants.PARAM_USERNAME, username);
         params.add("param1", param11);
         params.add("param1", param12);
+        params.add(Constants.PARAM_USERNAME, username);
         params.add("param2", param2);
         params.add(Constants.PARAM_DIGEST, HmacSHA256Utils.digest(key, params));
 
